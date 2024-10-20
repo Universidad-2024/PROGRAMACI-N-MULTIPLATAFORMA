@@ -1,0 +1,7 @@
+{
+  "name": "ratail-off",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
