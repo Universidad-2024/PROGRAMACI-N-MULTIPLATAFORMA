@@ -15,6 +15,8 @@ export class Tab2Page {
     public dataLocal: DataLocalService
   ) {}
 
-  abrirRegistro(registro: Registro) {}
+  async abrirRegistro(registro: Registro) {
+    await this.dataLocal.abrirRegistro(registro);
+  }
 
 }
