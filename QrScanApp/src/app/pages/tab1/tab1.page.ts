@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CapacitorBarcodeScanner, CapacitorBarcodeScannerScanResult } from '@capacitor/barcode-scanner';
 import { DataLocalService } from 'src/app/services/data-local.service';
+import { GlobalStateService } from 'src/app/services/global-state.service';
 
 @Component({
   selector: 'app-tab1',
@@ -10,7 +11,8 @@ import { DataLocalService } from 'src/app/services/data-local.service';
 export class Tab1Page {
 
   constructor(
-    private dataLocalService: DataLocalService
+    private dataLocalService: DataLocalService,
+    private globalStateService: GlobalStateService
   ) {}
 
   async scanBarcode(val?: number) {
@@ -37,6 +39,14 @@ export class Tab1Page {
 
     } catch (error) {
       this.dataLocalService.guardarRegistro('QRCode no reconocido');
+    }
+  }
+
+  async logout() {
+    try {
+      await this.globalStateService.logout();
+    } catch (error) {
+      console.error(error);
     }
   }
 
