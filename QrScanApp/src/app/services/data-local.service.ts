@@ -44,6 +44,9 @@ export class DataLocalService {
       case 'http':
         await Browser.open({ url: registro.text });
         break;
+      case 'geo':
+        this.navCtrl.navigateForward(`/tabs/tab2/mapa/${registro.text}`);
+        break;
     }
 
   }
